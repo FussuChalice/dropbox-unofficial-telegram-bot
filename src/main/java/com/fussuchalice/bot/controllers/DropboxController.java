@@ -170,6 +170,9 @@ public class DropboxController {
                     .withMode(WriteMode.ADD)
                     .uploadAndFinish(new FileInputStream(localFilePath));
 
+            // Delete file from storage
+            new File(localFilePath).delete();
+
             bot.sendMessage(chatId, languagePack.getProperty("dbx_upload_success"));
 
         } catch (DbxException | IOException e) {
