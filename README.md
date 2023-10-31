@@ -59,3 +59,14 @@ Dropbox Unofficial Telegram Bot, its contributors, and developers are not liable
 Please exercise caution and abide by the terms of service and privacy policies of external services or APIs used in this project. Dropbox Unofficial Telegram Bot is not a replacement for official applications or services, and it is recommended to use official applications when available.
 
 By using this software, you agree to these terms and conditions.
+
+## Tools
+
+A big thank you to the following tools and platforms that were used during the development of this project:
+
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/): Our preferred integrated development environment (IDE).
+- [Notepad++](https://notepad-plus-plus.org/): An excellent text editor for coding and scripting.
+- [Telegram](https://telegram.org/): The messaging platform that powers this Telegram bot.
+- [Git](https://git-scm.com/): The essential version control system that helped manage this project.
+
+We appreciate the contributions of these tools and services in making this project possible.
