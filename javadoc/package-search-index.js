@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.fussuchalice.bot"},{"l":"com.fussuchalice.bot.controllers"}];updateSearchResults();
