@@ -1,6 +1,3 @@
-/**
- * The LanguageSelectionController class is responsible for managing language selection and messages in a Telegram bot.
- */
 package com.fussuchalice.bot.controllers;
 
 import com.fussuchalice.bot.DropboxUnofficialBot;
@@ -17,11 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * The LanguageSelectionController class is responsible for managing language selection and messages in a Telegram bot.
+ */
 public class LanguageSelectionController {
     /**
      * Sends a language selection message with inline keyboard buttons for language options.
      *
      * @param bot     The Telegram bot instance.
+     * @param languagePack The language pack containing text messages.
      * @param chatId  The chat identifier where the message will be sent.
      */
     public static void sendLanguageSelectionMessage(DropboxUnofficialBot bot, long chatId, Properties languagePack) {

@@ -13,12 +13,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Properties;
 
 
-
+/**
+ * The `DropboxUnofficialBot` class is the main class for the Telegram bot application. It extends TelegramLongPollingBot
+ * and handles user interactions and Dropbox integration.
+ */
 public class DropboxUnofficialBot extends TelegramLongPollingBot {
     private Properties languagePack = LanguageSelectionController.getLanguageFileByCode("en");
     private String USER_ACCESS_TOKEN;
@@ -132,6 +133,12 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
         }
     }
 
+    /**
+     * Gets the file extension from a given file path.
+     *
+     * @param filePath The file path from which to extract the extension.
+     * @return The file extension.
+     */
     private static String getFileExtension(String filePath) {
         int lastDotIndex = filePath.lastIndexOf('.');
         if (lastDotIndex >= 0) {
@@ -140,6 +147,12 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
         return "";
     }
 
+    /**
+     * Extracts the path from a message text enclosed in double quotes.
+     *
+     * @param messageText The message text that may contain a path enclosed in double quotes.
+     * @return The extracted path or null if not found.
+     */
     public static String getPathByMessageText(String messageText) {
         int startQuote = messageText.indexOf("\"");
         int endQuote = messageText.lastIndexOf("\"");
@@ -151,6 +164,12 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
         return null;
     }
 
+    /**
+     * Sends a text message to the specified chat.
+     *
+     * @param chatId      The chat ID where the message will be sent.
+     * @param messageText The text message to send.
+     */
     public void sendMessage(long chatId, String messageText) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);

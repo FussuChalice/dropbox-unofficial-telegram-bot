@@ -15,7 +15,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * The `DropboxController` class provides methods for interacting with Dropbox through the Dropbox API.
+ */
 public class DropboxController {
+    /**
+     * Handles the authorization command by sending an instruction message to the user.
+     *
+     * @param bot          The bot instance.
+     * @param chatId       The chat ID where the message will be sent.
+     * @param languagePack The language pack containing text messages.
+     */
     public static void handleAuthCommand(DropboxUnofficialBot bot, long chatId, Properties languagePack) {
         SendMessage messageWithAuthInstruction = new SendMessage();
         messageWithAuthInstruction.setChatId(chatId);
@@ -35,6 +45,12 @@ public class DropboxController {
         return new DbxClientV2(config, accessKey);
     }
 
+    /**
+     * Retrieves the Dropbox client using the provided access key.
+     *
+     * @param accessKey The Dropbox access key.
+     * @param bot       The bot instance.
+     */
     public static void handleGetAccountInfo(DropboxUnofficialBot bot, long chatId, Properties languagePack, String accessKey) {
         DbxClientV2 clientV2 = getClientByAccessKey(accessKey, bot);
         FullAccount currentAccount;
@@ -54,6 +70,15 @@ public class DropboxController {
         bot.sendMessage(chatId, accountInfo);
     }
 
+    /**
+     * Handles the command to list files and folders in a given path on Dropbox.
+     *
+     * @param bot          The bot instance.
+     * @param chatId       The chat ID where the messages will be sent.
+     * @param languagePack The language pack containing text messages.
+     * @param accessKey    The Dropbox access key.
+     * @param path         The path to list files and folders from.
+     */
     public static void handleListDirCommand(DropboxUnofficialBot bot, long chatId, Properties languagePack, String accessKey, String path) {
         DbxClientV2 clientV2 = getClientByAccessKey(accessKey, bot);
         ListFolderResult result;
@@ -93,6 +118,15 @@ public class DropboxController {
         }
     }
 
+    /**
+     * Handles the command to share a file or folder in Dropbox.
+     *
+     * @param bot          The bot instance.
+     * @param chatId       The chat ID where the message will be sent.
+     * @param languagePack The language pack containing text messages.
+     * @param accessKey    The Dropbox access key.
+     * @param path         The path of the file or folder to share.
+     */
     public static void handleShareCommand(DropboxUnofficialBot bot, long chatId, Properties languagePack, String accessKey, String path) {
         DbxClientV2 clientV2 = getClientByAccessKey(accessKey, bot);
         try {
@@ -113,6 +147,13 @@ public class DropboxController {
         }
     }
 
+    /**
+     * Retrieves an existing shared link for a file or folder if it exists.
+     *
+     * @param client The Dropbox client.
+     * @param path   The path of the file or folder.
+     * @return The shared link metadata or null if no shared link exists.
+     */
     private static SharedLinkMetadata getExistingSharedLink(DbxClientV2 client, String path) {
         try {
             // Attempt to get an existing shared link for the file
@@ -129,6 +170,16 @@ public class DropboxController {
         }
     }
 
+    /**
+     * Handles the command to move a file or folder in Dropbox to a specified destination.
+     *
+     * @param bot       The bot instance.
+     * @param chatId    The chat ID where the message will be sent.
+     * @param languagePack The language pack containing text messages.
+     * @param accessKey The Dropbox access key.
+     * @param srcPath   The source path of the file or folder to move.
+     * @param dstPath   The destination path for the move operation.
+     */
     public static void handleMoveCommand(DropboxUnofficialBot bot, long chatId, Properties languagePack, String accessKey, String srcPath, String dstPath) {
         DbxClientV2 clientV2 = getClientByAccessKey(accessKey, bot);
 
@@ -159,6 +210,16 @@ public class DropboxController {
         }
     }
 
+    /**
+     * Handles the command to upload a local file to Dropbox.
+     *
+     * @param bot          The bot instance.
+     * @param chatId       The chat ID where the message will be sent.
+     * @param languagePack The language pack containing text messages.
+     * @param accessKey    The Dropbox access key.
+     * @param localFilePath The local file path to upload.
+     * @param remotePath    The destination path in Dropbox for the uploaded file.
+     */
     public static void handleUploadFiles(DropboxUnofficialBot bot, long chatId, Properties languagePack, String accessKey, String localFilePath, String remotePath) {
         DbxClientV2 clientV2 = getClientByAccessKey(accessKey, bot);
 

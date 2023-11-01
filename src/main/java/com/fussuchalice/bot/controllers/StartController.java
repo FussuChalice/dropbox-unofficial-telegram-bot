@@ -1,7 +1,3 @@
-/**
- * The StartController class is responsible for handling the start command in a Telegram bot.
- * It sends a welcome message with a start image to the user.
- */
 package com.fussuchalice.bot.controllers;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
@@ -9,6 +5,10 @@ import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import com.fussuchalice.bot.DropboxUnofficialBot;
 
+/**
+ * The StartController class is responsible for handling the start command in a Telegram bot.
+ * It sends a welcome message with a start image to the user.
+ */
 public class StartController {
 
     /**
