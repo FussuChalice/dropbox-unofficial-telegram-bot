@@ -1,8 +1,16 @@
+![image](https://github.com/FussuChalice/dropbox-unofficial-telegram-bot/assets/70341920/053ac439-0901-41f5-b454-1c3352fc9c91)
 # Dropbox Unofficial Telegram Bot
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Dropbox Unofficial Telegram Bot is a Telegram bot that allows you to interact with your Dropbox account right from the Telegram app. You can manage files, share links, move files, and even upload files directly to your Dropbox account.
+
+## Bot In Telegram
+https://t.me/dropbox_unofficial_bot
+
+## Docs
+- [https://fussuchalice.github.io/dropbox-unofficial-telegram-bot/javadoc/](https://fussuchalice.github.io/dropbox-unofficial-telegram-bot/javadoc/)
+- [Compile and build applications with IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-applications.html)
 
 ## Features
 
@@ -27,7 +35,7 @@ Before you begin, ensure you have met the following requirements:
 ```bash
 git clone https://github.com/FussuChalice/dropbox-unofficial-telegram-bot.git
 ```
-2. Start with java
+2. Build to jar and start with java. Read [Docs](#docs)
 
 ## Usage
 
