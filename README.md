@@ -43,6 +43,9 @@ git clone https://github.com/FussuChalice/dropbox-unofficial-telegram-bot.git
 2. Use the `/auth` command to authorize your Dropbox account.
 3. Start using the available commands (e.g., `/get_account_info`, `/ls`, `/share`, `/move`, or upload a file).
 
+### Use Telemetry
+To use Telemetry after `java -jar dropbox-bot.jar` use  `> <your_output_file>`
+
 ## Contributing
 
 Contributions are welcome! Here's how you can contribute to this project:
