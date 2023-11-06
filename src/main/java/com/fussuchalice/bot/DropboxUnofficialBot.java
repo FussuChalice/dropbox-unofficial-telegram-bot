@@ -24,11 +24,12 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
     private Properties languagePack = LanguageSelectionController.getLanguageFileByCode("en");
     private String USER_ACCESS_TOKEN;
 
+    private final Telemetry telemetry = new Telemetry();
+
     private final String UPLOAD_FILE_DIR_PATH = "/uploaded_via_bot";
 
     @Override
     public void onUpdateReceived(Update update) {
-
 
         // Handle commands
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -40,12 +41,17 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
                 LanguageSelectionController.sendLanguageSelectionMessage(this, chatId, this.languagePack);
                 DropboxController.handleAuthCommand(this, chatId, languagePack);
 
+                telemetry.outTableValue(String.valueOf(chatId), "/start", telemetry.getCurrentTimeFormatted());
+
             } else if (messageText.equals("/change_language")) {
                 LanguageSelectionController.sendLanguageSelectionMessage(this, chatId, this.languagePack);
+                telemetry.outTableValue(String.valueOf(chatId), "/change_language", telemetry.getCurrentTimeFormatted());
             } else if (messageText.equals("/auth")) {
                 DropboxController.handleAuthCommand(this, chatId, languagePack);
+                telemetry.outTableValue(String.valueOf(chatId), "/auth", telemetry.getCurrentTimeFormatted());
             } else if (messageText.equals("/help")) {
                 sendMessage(chatId, languagePack.getProperty("help_message"));
+                telemetry.outTableValue(String.valueOf(chatId), "/help", telemetry.getCurrentTimeFormatted());
             }
 
             // Handle dropbox commands
@@ -53,8 +59,10 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
                 DropboxController.handleGetAccountInfo(this, chatId, languagePack, this.USER_ACCESS_TOKEN);
             } else if (messageText.startsWith("/ls ")) {
                 DropboxController.handleListDirCommand(this, chatId, languagePack, this.USER_ACCESS_TOKEN, getPathByMessageText(messageText));
+                telemetry.outTableValue(String.valueOf(chatId), "/ls", telemetry.getCurrentTimeFormatted());
             } else if (messageText.startsWith("/share ")) {
                 DropboxController.handleShareCommand(this, chatId, languagePack, this.USER_ACCESS_TOKEN, getPathByMessageText(messageText));
+                telemetry.outTableValue(String.valueOf(chatId), "/share", telemetry.getCurrentTimeFormatted());
             } else if (messageText.startsWith("/move ")) {
                 String[] args = messageText.split(" ");
                 if (args.length == 3) {
@@ -64,6 +72,7 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
                     System.out.println(srcPath);
 
                     DropboxController.handleMoveCommand(this, chatId, languagePack, this.USER_ACCESS_TOKEN, srcPath, dstPath);
+                    telemetry.outTableValue(String.valueOf(chatId), "/move", telemetry.getCurrentTimeFormatted());
                 } else {
                     sendMessage(chatId, languagePack.getProperty("help_move_command"));
                 }
@@ -108,7 +117,6 @@ public class DropboxUnofficialBot extends TelegramLongPollingBot {
 
                     String currentDir = System.getProperty("user.dir");
                     String localFilePath = currentDir + "\\uploads\\" + fileUniqueId + fileExtension;
-                    System.out.println(localFilePath);
 
 
                     // Download the file to the local directory

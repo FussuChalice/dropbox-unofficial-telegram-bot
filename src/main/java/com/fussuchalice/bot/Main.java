@@ -20,5 +20,8 @@ public class Main {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+
+        Telemetry telemetry = new Telemetry();
+        telemetry.outHeader();
     }
 }
