@@ -3,6 +3,8 @@ package com.fussuchalice.bot;
 import com.fussuchalice.bot.controllers.DropboxController;
 import com.fussuchalice.bot.controllers.LanguageSelectionController;
 import com.fussuchalice.bot.controllers.StartController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -13,13 +15,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Properties;
 
 
 
 public class DropboxUnofficialBot extends TelegramLongPollingBot {
+
     private Properties languagePack = LanguageSelectionController.getLanguageFileByCode("en");
     private String USER_ACCESS_TOKEN;
 
