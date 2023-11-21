@@ -80,4 +80,11 @@ A big thank you to the following tools and platforms that were used during the d
 - [Telegram](https://telegram.org/): The messaging platform that powers this Telegram bot.
 - [Git](https://git-scm.com/): The essential version control system that helped manage this project.
 
+
+<img src="https://github.com/FussuChalice/dropbox-unofficial-telegram-bot/assets/70341920/8217ed6d-d3f3-4e70-8ec3-e987d0051943" height="50" />
+<img src="https://github.com/FussuChalice/dropbox-unofficial-telegram-bot/assets/70341920/7b14f175-b32e-4c64-82bc-f2577824a4ae" height="50" />
+<img src="https://github.com/FussuChalice/dropbox-unofficial-telegram-bot/assets/70341920/33933681-bfd0-474c-b6eb-d22b59e10477" height="50" />
+<img src="https://github.com/FussuChalice/dropbox-unofficial-telegram-bot/assets/70341920/9b8a8815-2c0a-4f69-8907-ca72835996dc" height="50" />
+
+
 We appreciate the contributions of these tools and services in making this project possible.
